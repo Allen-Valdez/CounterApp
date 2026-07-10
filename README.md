@@ -1,16 +1,39 @@
-# React + Vite
+# React Counter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple counter app built with React to practice state, event handling, input validation, and limit controls.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Increase and decrease the counter
+- Reset the counter to zero
+- Set a custom step amount
+- Set minimum and maximum limits
+- Prevent the counter from going past the limits
+- Disable buttons when a limit is reached
+- Show a message when the counter reaches the minimum or maximum
 
-## React Compiler
+## Built With
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- CSS
+- Vite
 
-## Expanding the ESLint configuration
+## What I Practiced
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project helped me practice:
+
+- `useState`
+- Functional state updates
+- Controlled inputs
+- Validation
+- Conditional rendering
+- Disabling buttons based on state
+- Using `Math.min()` and `Math.max()` to keep values within limits
+
+## Run Locally
+
+Clone the repository:
+
+```bash
+git clone YOUR_REPOSITORY_URL
