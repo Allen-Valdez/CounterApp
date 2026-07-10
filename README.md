@@ -36,4 +36,4 @@ This project helped me practice:
 Clone the repository:
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/Allen-Valdez/CounterApp.git
