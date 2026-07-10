@@ -1,0 +1,140 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background: #111827;
+	color: #f9fafb;
+}
+
+button,
+input {
+	font: inherit;
+}
+
+.counter-page {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 24px;
+}
+
+.counter-card {
+	width: 100%;
+	max-width: 420px;
+	padding: 32px;
+	text-align: center;
+	background: #1f2937;
+	border: 1px solid #374151;
+	border-radius: 18px;
+	box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.counter-card h1 {
+	margin-top: 0;
+	margin-bottom: 24px;
+	font-size: 2rem;
+}
+
+.count-display {
+	margin: 0;
+	padding: 20px;
+	font-size: 2.5rem;
+	background: #111827;
+	border: 1px solid #374151;
+	border-radius: 12px;
+}
+
+.message-area {
+	min-height: 48px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.limit-message {
+	margin: 12px 0;
+	font-weight: bold;
+	color: #fca5a5;
+}
+
+.button-group {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+	margin-bottom: 28px;
+}
+
+.button-group button {
+	padding: 12px 18px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	font-weight: bold;
+	transition:
+		transform 0.15s ease,
+		background-color 0.15s ease,
+		opacity 0.15s ease;
+}
+
+.button-group button:hover:not(:disabled) {
+	transform: translateY(-2px);
+}
+
+.counter-button {
+	background: #2563eb;
+	color: white;
+}
+
+.counter-button:hover:not(:disabled) {
+	background: #1d4ed8;
+}
+
+.reset-button {
+	background: #4b5563;
+	color: white;
+}
+
+.reset-button:hover {
+	background: #6b7280;
+}
+
+.button-group button:disabled {
+	cursor: not-allowed;
+	opacity: 0.4;
+}
+
+.input-group {
+	display: grid;
+	gap: 14px;
+}
+
+.input-control {
+	display: grid;
+	grid-template-columns: 80px 1fr;
+	align-items: center;
+	gap: 12px;
+	text-align: left;
+}
+
+.input-control label {
+	font-weight: bold;
+}
+
+.input-control input {
+	width: 100%;
+	padding: 10px 12px;
+	color: #f9fafb;
+	background: #111827;
+	border: 1px solid #4b5563;
+	border-radius: 8px;
+	outline: none;
+}
+
+.input-control input:focus {
+	border-color: #60a5fa;
+	box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
