@@ -2,10 +2,13 @@ import { useState } from 'react';
 import './Counter.css';
 
 const Counter = () => {
-	const [count, setCount] = useState(0);
+	const [count, setCount] = useState(1);
 	const [step, setStep] = useState(1);
 	const [max, setMax] = useState(10);
 	const [min, setMin] = useState(-10);
+	const [maxInput, setMaxInput] = useState('10');
+	const [minInput, setMinInput] = useState('-10');
+	const [stepInput, setStepInput] = useState('1');
 
 	const incrementCount = () => {
 		setCount(prevCount => Math.min(prevCount + step, max));
@@ -19,21 +22,31 @@ const Counter = () => {
 		setCount(0);
 	};
 
-	const onChangeStep = e => {
-		const stepVal = Number(e.target.value);
-		setStep(Math.max(stepVal, 1));
-	};
+	const onChangeStep = e => setStepInput(e.target.value);
+	const onChangeMax = e => setMaxInput(e.target.value);
+	const onChangeMin = e => setMinInput(e.target.value);
 
-	const onChangeMax = e => {
-		const maxVal = Math.max(Number(e.target.value), 1);
+	const onBlurMax = () => {
+		const maxVal = Math.max(Number(maxInput) || 1, 1);
+
 		setMax(maxVal);
+		setMaxInput(String(maxVal));
 		setCount(prevCount => Math.min(prevCount, maxVal));
 	};
 
-	const onChangeMin = e => {
-		const minVal = Math.min(Number(e.target.value), -1);
+	const onBlurMin = () => {
+		const minVal = Math.min(Number(minInput) || -1, -1);
+
 		setMin(minVal);
+		setMinInput(String(minVal));
 		setCount(prevCount => Math.max(prevCount, minVal));
+	};
+
+	const onBlurStep = () => {
+		const stepVal = Math.max(Number(stepInput) || 1, 1);
+
+		setStep(stepVal);
+		setStepInput(String(stepVal));
 	};
 
 	const reachedMax = count >= max;
@@ -72,17 +85,17 @@ const Counter = () => {
 				<div className='input-group'>
 					<div className='input-control'>
 						<label htmlFor='step'>Step</label>
-						<input id='step' type='number' value={step} onChange={onChangeStep} min='1' />
+						<input id='step' type='number' value={stepInput} onChange={onChangeStep} min='1' onBlur={onBlurStep} />
 					</div>
 
 					<div className='input-control'>
 						<label htmlFor='max'>Max</label>
-						<input id='max' type='number' value={max} onChange={onChangeMax} min='1' />
+						<input id='max' type='number' value={maxInput} onChange={onChangeMax} onBlur={onBlurMax} min='1' />
 					</div>
 
 					<div className='input-control'>
 						<label htmlFor='min'>Min</label>
-						<input id='min' type='number' value={min} onChange={onChangeMin} max='-1' />
+						<input id='min' type='number' value={minInput} onChange={onChangeMin} onBlur={onBlurMin} max='-1' />
 					</div>
 				</div>
 			</div>
@@ -91,14 +104,3 @@ const Counter = () => {
 };
 
 export default Counter;
-
-// Increase the counter \/
-// Decrease the counter \/
-// Reset the counter back to 0 \/
-// Set a custom step amount \/
-// Set a minimum limit \/
-// Set a maximum limit \/
-// Prevent the counter from going below the min \/
-// Prevent the counter from going above the max \/
-// Disable buttons when the limit is reached \/
-// Show a warning/message when the counter is at min or max \/
